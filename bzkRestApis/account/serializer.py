@@ -9,7 +9,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'username', 'password', 'first_name', 'last_name')
         # read_only_fields = ('is_staff', 'is_active', 'is_superuser')
-        # test
+        # test feeature
         extra_kwargs = {'password': {'write_only': True}
                         }
 
