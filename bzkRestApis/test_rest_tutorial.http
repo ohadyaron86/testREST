@@ -1,0 +1,86 @@
+### register with user
+POST http://localhost:8000/account/api/register
+Content-Type: application/json
+
+{
+  "username": "new_user333",
+  "password": "1234",
+  "email": "user@example.com",
+  "first_name": "user_f",
+  "last_name": "user_l"
+}
+
+### login with user
+POST http://localhost:8000/api/token/
+Content-Type: application/json
+
+{
+  "username": "new_user333",
+  "password": "1234"
+}
+
+### get all items
+GET http://localhost:8000/api/tutorials
+Accept: application/json
+
+### get all items that starts with 'test'
+GET http://localhost:8000/api/tutorials?title=test
+Accept: application/json
+
+### get item with id=1
+GET http://localhost:8000/api/tutorials/1
+Accept: application/json
+
+### change item8
+PUT http://localhost:8000/api/tutorials/8
+Content-Type: application/json
+
+{
+    "title": "test title after put",
+    "description": "test description",
+    "published": false
+}
+
+### change item8
+PATCH http://localhost:8000/api/tutorials/8
+Content-Type: application/json
+
+{
+    "title": "test title after patch"
+}
+
+### get item with id=1
+DELETE http://localhost:8000/api/tutorials/1
+Accept: application/json
+
+### get all published items
+GET http://localhost:8000/api/tutorials/published
+Accept: application/json
+
+### get items thats contains 'title1' in title
+GET http://localhost:8000/api/tutorials?title=title1
+Accept: application/json
+
+### add not published item
+POST http://localhost:8000/api/tutorials
+Content-Type: application/json
+
+{
+  "title": "test",
+  "description": "XXX",
+  "level": "HI"
+}
+
+### add published item
+POST http://localhost:8000/api/tutorials
+Content-Type: application/json
+
+{
+  "title": "test title",
+  "description": "test description",
+  "published": true
+}
+
+### Authorization by token, part 2. Use token to authorize.
+GET http://localhost:8000/api/tutorials
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjEwMDE2MjEwLCJqdGkiOiJhYjZmZmVjYjIyMWU0YTk0YjM4ZjZmZDJhYzJiZjQ2ZCIsInVzZXJfaWQiOjI1fQ.Y62PAsB5Z0TqqSBZ43bpuz91IsowI0dOeDhKPB77tLI
